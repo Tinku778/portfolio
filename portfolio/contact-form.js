@@ -1,12 +1,11 @@
-
- const firebaseConfig = {
-    apiKey: "AIzaSyBsRejFphzn6wOS4SX-w3sso7T34kkbnTk",
-    authDomain: "portfolio-pardhu.firebaseapp.com",
-    databaseURL: "https://portfolio-pardhu-default-rtdb.firebaseio.com",
-    projectId: "portfolio-pardhu",
-    storageBucket: "portfolio-pardhu.appspot.com",
-    messagingSenderId: "500230517097",
-    appId: "1:500230517097:web:78b8557b2f1e4fd6894df8"
+const firebaseConfig = {
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
   };
 //init
   firebase.initializeApp(firebaseConfig);
