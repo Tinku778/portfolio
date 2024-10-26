@@ -1,0 +1,112 @@
+header {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #bio .profile-pic {
+            width: 50%;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        #bio {
+            padding: 20px 10px;
+            background-color: #fdfdfd;
+            box-shadow: 0 4px 8px rgba(0.1, 0.1, 0.1, 0.2);
+            border-radius: 10px;
+        }
+        .card {
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: none;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .navbar-nav li a {
+            font-size: 1.3rem;
+        }
+        .navbar{
+            margin-top: 0;  /* Remove any top margin */
+            padding-top: 0;
+            text-align: center;
+            background-color: #343a40 !important;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #0d6efd;
+        }
+        .project-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        body {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        .skill-icon {
+            fill: #0d6efd;
+         }
+         
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #212529;
+            color: #f8f9fa;
+        }
+
+        
+
+        .dark-mode .card {
+            background-color: #343a40;
+            border: none;
+        }
+        .dark-mode #bio {
+            background-color: #343a40;
+            border: 1px;
+        }
+        .dark-mode .card h5,
+        .dark-mode .card p {
+            color: #f8f9fa;
+        }
+
+        .dark-mode .btn {
+            background-color: #0b7beb;
+            color: #f8f9fa;
+        }
+
+        .dark-mode .form-control {
+            background-color: #495057;
+            color: #f8f9fa;
+        }
+        
+        /* Dark Mode Switch Styling */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #172d45;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .alert{
+            width: 100%;
+            background-color: #2cd57e;
+            color: whitesmoke;
+            text-align: center;
+            padding: 10px 20px;
+            font-weight: 200px;
+            display: none;
+        }
