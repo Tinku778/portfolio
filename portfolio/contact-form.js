@@ -1,44 +1,31 @@
-const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: process.env.AUTH_DOMAIN,
-  databaseURL: process.env.DATABASE_URL,
-  projectId: process.env.PROJECT_ID,
-  storageBucket: process.env.STORAGE_BUCKET,
-  messagingSenderId: process.env.MESSAGING_SENDER_ID,
-  appId: process.env.APP_ID,
-  };
-//init
-  firebase.initializeApp(firebaseConfig);
-//referance object
-  var contactFormDB = firebase.database().ref("contactForm");
-//calling submitform function on submitting form
-  document.getElementById('contactform').addEventListener("submit",submitform);
-//function submitform
-function submitform(e){
+document.getElementById('contactform').addEventListener("submit", submitForm);
+
+async function submitForm(e) {
     e.preventDefault();
-  var name = GetEleId("name");
-  var email = GetEleId("email");
-  var msg = GetEleId("message");
-  
-  savdat(name,email,msg);
-  document.querySelector('.alert').style.display = 'block'
-  setTimeout(() => {
-    document.querySelector('.alert').style.display = 'none'
-  },3000);
-  document.getElementById("contactform").reset();
-}
-//method for pushing data.
-const savdat =(name,email,msg)=>{
-    var datcontactform = contactFormDB.push();
+    
+    const name = GetEleId("name");
+    const email = GetEleId("email");
+    const message = GetEleId("message");
 
-    datcontactform.set({
-        name: name,
-        email: email,
-        mssg: msg
-    })
+    try {
+        const response = await fetch("/.netlify/functions/contactFormHandler", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message }),
+        });
+        
+        const result = await response.json();
+        console.log(result.message);
+        
+        document.querySelector('.alert').style.display = 'block';
+        setTimeout(() => {
+            document.querySelector('.alert').style.display = 'none';
+        }, 3000);
+        
+        document.getElementById("contactform").reset();
+    } catch (error) {
+        console.error("Error:", error);
+    }
 }
-//method for extratcing data from form.
-const GetEleId =(id) =>{
-    return document.getElementById(id).value;
-};
 
+const GetEleId = (id) => document.getElementById(id).value;
