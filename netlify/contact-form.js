@@ -7,16 +7,6 @@ async function submitForm(e) {
     const email = GetEleId("email");
     const message = GetEleId("message");
 
-    try {
-        const response = await fetch("/.netlify/functions/contactFormHandler", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, message }),
-        });
-        
-        const result = await response.json();
-        console.log(result.message);
-        
         document.querySelector('.alert').style.display = 'block';
         setTimeout(() => {
             document.querySelector('.alert').style.display = 'none';
